@@ -91,9 +91,9 @@ class ElasticsearchCrawlerClient(object):
 
 if __name__ == "__main__":
     elastic = ElasticsearchCrawlerClient("http://172.26.7.84:9200/")
-    elastic.put(key="https://malbaka.com/", data="Some data here!", date="2018.11.02", tags=["tag0", "tag1", "tag2"])
+    elastic.put(key="https://malbaka.com/", data="Some data here!", date="2018.11.02", head="SuperHead", tags=["tag0", "tag1", "tag2"])
     elastic.contains(key="https://malbaka.com/")
-    elastic.search("_all")
+    #elastic.search("_all")
     # elasticsearch.helpers.bulk(request, "index", stats_only=False)
     # elastic.delete("testindex1")
     # print(elastic.__dict__)
