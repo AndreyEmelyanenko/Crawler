@@ -13,8 +13,8 @@ Crawler is a web application with expressive, elegant syntax and powerfull fucti
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
 ## Base fuctions
-* elastic.put(key="https://malbaka.com/", data="Some data here!", date="2018.11.02", head="SuperHead", tags=["tag0", "tag1", "tag2"])
-* elastic.contains(key="https://malbaka.com/")
+* elasticsearchCrawlerClient.put(key="https://malbaka.com/", data="Some data here!", date="2018.11.02", head="SuperHead", tags=["tag0", "tag1", "tag2"])
+* elasticsearchCrawlerClient.contains(key="https://malbaka.com/")
 
 ## Learning Crawler
 
