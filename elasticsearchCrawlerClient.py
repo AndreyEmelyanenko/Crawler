@@ -31,12 +31,13 @@ class ElasticsearchCrawlerClient(object):
             else:
                 raise error
 
-    def put(self, key, data, date, tags, index="fulltext"):
+    def put(self, key, data, date, head, tags, index="fulltext"):
         """External method 'put' - puts data to Elasticsearch. Uses '__put'."""
         doc = {
             'key': key,
             'data': data,
             'date': date,
+			'head': head,
             'tags': tags,
             'timestamp': datetime.datetime.now()
         }
