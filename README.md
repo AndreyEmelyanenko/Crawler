@@ -12,6 +12,10 @@
 Crawler is a web application with expressive, elegant syntax and powerfull fuctionality. We believe development must be an enjoyable and creative experience to be truly fulfilling. Crawler attempts to take the pain out of crawling by easing common tasks used in the majority of web projects.
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
+## Base fuctions
+* elastic.put(key="https://malbaka.com/", data="Some data here!", date="2018.11.02", head="SuperHead", tags=["tag0", "tag1", "tag2"])
+* elastic.contains(key="https://malbaka.com/")
+
 ## Learning Crawler
 
 Crawler has the most extensive and thorough [documentation](https://github.com/AndreyEmelyanenko/Crawler/blob/master/README.md) and video tutorial library of any modern Crawler, making it a breeze to get started learning the Crawler.
