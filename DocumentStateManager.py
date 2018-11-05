@@ -58,7 +58,14 @@ if __name__ == "__main__":
     print(sys.version)
 
     Client = ElasticsearchCrawlerClient.ElasticsearchCrawlerClient("http://172.26.7.84:9200/")
+<<<<<<< HEAD
     DocumentStateManager = DocumentStateManager(Client, "bufferindex")
     if DocumentStateManager.document != None:
         print(DocumentStateManager.document)
         DocumentStateManager.change_state("newIndex")
+=======
+    Manager = DocumentStateManager(Client, "bufferindex")
+    if Manager.document != None:
+        print(Manager.document)
+        Manager.change_state(Client, "newIndex")
+>>>>>>> 24dfe1b30ec355869d83c971603029644c4f63ac
