@@ -13,7 +13,8 @@ class DocumentStateManager(object):
     def __init__(self, ElasticsearchCrawlerClient, BaseIndex="bufferindex"):
         """DocumentStateManager Constructor"""
         self.base_index = BaseIndex
-        self.document = self.__get_document(ElasticsearchCrawlerClient, self.base_index)
+        self.client = ElasticsearchCrawlerClient
+        self.document = self.__get_document(self.client, self.base_index)
         if self.document != None:
             self.id = self.document['key']
         else:
@@ -40,13 +41,13 @@ class DocumentStateManager(object):
         except exceptions.__all__ as error:
             raise error
 
-    def change_state(self, ElasticsearchCrawlerClient, NewIndex):
+    def change_state(self, NewIndex):
         """External method 'ChangeState' - deletes id in index in Elasticsearch and creates id in NewIndex."""
         try:
             print("ChangeState")
-            ElasticsearchCrawlerClient.buffer_put(index=NewIndex, doc_type="all", key=self.id, body=self.document)
+            self.client.buffer_put(index=NewIndex, doc_type="all", key=self.id, body=self.document)
             print("DeleteInBuffer")
-            ElasticsearchCrawlerClient.delete_document(index=self.base_index, doc_type="all", id=self.id)
+            self.client.delete_document(index=self.base_index, doc_type="all", id=self.id)
             return True
         except exceptions as error:
             print(error)
@@ -60,4 +61,4 @@ if __name__ == "__main__":
     DocumentStateManager = DocumentStateManager(Client, "bufferindex")
     if DocumentStateManager.document != None:
         print(DocumentStateManager.document)
-        DocumentStateManager.change_state(Client, "testindex4")
+        DocumentStateManager.change_state("newIndex")
